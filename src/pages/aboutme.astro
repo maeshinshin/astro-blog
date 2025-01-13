@@ -1,10 +1,64 @@
 ---
+import BaseContents from "../components/BaseContents.astro";
+import { Content, Contents } from "../components/BaseContents.astro";
+import { SITE_TITLE } from "../config";
+import MyInfo from "src/components/MyInfo.astro";
 import PageMeta from "../components/PageMeta.astro";
 import PageLayout from "../layouts/PageLayout.astro";
-import { SITE_TITLE } from "../config";
+
+const interestsContents: Content[] = [
+  { article: "仮想化技術" },
+  { article: "コンテナ技術" },
+  { article: "ネットワーク" },
+];
+
+const educationalContents: Contents = [
+  {
+    article: "北海道函館中部高等学校 普通科",
+    duration: ["2022-03", "2019-04"],
+  },
+  {
+    article: "法政大学 情報科学部 ディジタルメディア学科",
+    duration: ["2022-04", ""],
+  },
+];
+
+const qualificationsContents: Contents = [
+  {
+    article: "ネットワークスペシャリスト試験",
+    qualificationMonth: "2024-04",
+  },
+  {
+    article: "AWS Certified Solutions Architect - Associate",
+    qualificationMonth: "2024-05",
+  },
+  {
+    article: "情報処理安全確保支援士試験試験",
+    qualificationMonth: "2024-10",
+  },
+];
 ---
 
 <PageLayout>
   <PageMeta title={`About Me | ${SITE_TITLE}`} slot="meta" />
-  <Fragment slot="main"></Fragment>
+  <Fragment slot="main">
+    <h1
+      class="font-bold text-text-heading text-center text-4xl md:text-5xl mb-10 pt-4 pb-2 overflow-hidden"
+    >
+      <span
+        class="bg-gradient-to-bl bg-no-repeat bg-bottom bg-[length:90%_40%] from-primary-blue to-primary-blue dark:from-primary-blue dark:to-primary-blue"
+      >
+        About Me
+      </span>
+    </h1>
+
+    <MyInfo />
+    <BaseContents title="Interests" contents={interestsContents} />
+    <BaseContents
+      title="Educational Background"
+      contents={educationalContents}
+    />
+    <BaseContents title="Qualifications" contents={qualificationsContents} />
+    <div class="mb-32"></div>
+  </Fragment>
 </PageLayout>

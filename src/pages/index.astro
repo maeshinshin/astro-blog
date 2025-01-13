@@ -10,6 +10,15 @@ import { SITE_TITLE } from "../config";
   <PageMeta title={` Home | ${SITE_TITLE} `} slot="meta" />
   <Fragment slot="main">
     <Intro />
+    <div class="flex justify-center">
+      <div class="items-center w-32 h-32 aspect-w-1 aspect-h-1">
+        <img
+          src="../../public/images/catwithcomputerkeyboard.png"
+          alt="cat with computer keyboard"
+          class="object-cover w-full h-full"
+        />
+      </div>
+    </div>
     <BlogInfo />
   </Fragment>
 </PageLayout>

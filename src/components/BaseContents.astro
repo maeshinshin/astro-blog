@@ -1,0 +1,51 @@
+---
+const { title, contents } = Astro.props;
+
+export type Content = {
+  article: string;
+  duration?: string[2];
+  qualificationMonth?: string;
+};
+
+export type Contents = Content[];
+---
+
+<div>
+  <div class="title text-4xl mt-36 mb-5">{title}</div>
+  {
+    contents.length > 0 ? (
+      <ul>
+        {contents.map((content: Content) => (
+          <li>
+            <header>
+              <h2 class="title text-2xl">{content.article}</h2>
+              <span class="text-text-muted text-sm italic pt-1">
+                {content.duration && (
+                  <div>
+                    <time datetime={content.duration[0]}>
+                      {content.duration[0]}
+                    </time>
+                    <span>-</span>
+                    <time datetime={content.duration[1]}>
+                      {content.duration[1] || "現在"}
+                    </time>
+                  </div>
+                )}
+                {content.qualificationMonth && (
+                  <div>
+                    <time datetime={content.qualificationMonth}>
+                      {content.qualificationMonth}
+                    </time>
+                    <span class="ml-2">取得</span>
+                  </div>
+                )}
+              </span>
+            </header>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p>No contents available.</p>
+    )
+  }
+</div>
