@@ -98,6 +98,17 @@ export const config: Config = {
       },
       selfClosing: true,
     },
+    picturewithurl: {
+      render: "PictureWithURLEmbed",
+      attributes: {
+        src: { type: String, required: true },
+        url: { type: String, required: true },
+        alt: { type: String, required: false },
+        classes: { type: String, required: false },
+        targetIsBlank: { type: Boolean, required: false },
+      },
+      selfClosing: true,
+    }
   },
   nodes: {
     heading: {

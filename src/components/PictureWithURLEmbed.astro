@@ -1,0 +1,21 @@
+---
+type Props = {
+  src: string;
+  url: string;
+  alt: string;
+  classes: string;
+  targetIsBlank: boolean;
+};
+
+const { src, url, alt, classes, targetIsBlank } = Astro.props;
+---
+
+<div>
+  <a
+    href={url}
+    target={targetIsBlank ? "_blank" : undefined}
+    rel={targetIsBlank ? "noopener noreferrer" : undefined}
+  >
+    <img class={classes} src={`../../images/${src}`} alt={alt} />
+  </a>
+</div>
